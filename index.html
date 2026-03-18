@@ -47,10 +47,6 @@
         .view-section.active { display: grid; }
         
         input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); }
-
-        /* Tabela Estilizada */
-        .custom-table th { color: #4b5563; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .custom-table td { padding: 1rem; font-size: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.02); }
     </style>
 </head>
 <body class="p-6 flex flex-col">
@@ -68,7 +64,7 @@
                 <span class="w-2 h-2 bg-green-500 rounded-full status-pulse" id="status-dot"></span>
                 <span class="text-xs font-mono" id="sync-label">FEDERAL/SEFAZ-ACTIVE</span>
             </div>
-            <button onclick="showNotification('Certificado Digital A1 Verificado.', 'success')" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded font-bold text-sm transition">
+            <button onclick="showNotification('Certificado Digital A1 Verificado.', 'success')" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded font-bold text-sm transition text-white">
                 CERTIFICADO ATIVO
             </button>
         </div>
@@ -126,19 +122,19 @@
                     <h3 class="text-blue-400 text-sm mb-2 flex items-center gap-2 font-bold uppercase tracking-widest">
                         <i data-lucide="sparkles" size="16"></i> IA Insight
                     </h3>
-                    <p class="text-xs leading-relaxed" id="ia-insight">Aguardando dados...</p>
+                    <p class="text-xs leading-relaxed" id="ia-insight">Conectando ao núcleo soberano...</p>
                     <button onclick="aplicarOtimizacao()" class="mt-4 w-full border border-blue-500/50 text-blue-400 py-2 rounded-lg text-[10px] uppercase font-bold hover:bg-blue-500 hover:text-white transition">OTIMIZAR</button>
                 </div>
 
                 <div class="col-span-3 glass-panel p-6 rounded-2xl border border-blue-600/30">
                     <h3 class="text-blue-400 text-sm mb-4 flex items-center gap-2 font-bold uppercase tracking-widest">
-                        <i data-lucide="database" size="16"></i> Injeção de Dados (D1)
+                        <i data-lucide="database" size="16"></i> Injeção de Dados no Ledger Militar (D1)
                     </h3>
                     <div class="grid grid-cols-4 gap-4">
                         <input type="text" id="tax-name" placeholder="Tipo (ex: DAS)" class="bg-black/50 border border-gray-700 p-2 rounded text-xs outline-none focus:border-blue-500 text-white">
                         <input type="number" id="tax-amount" placeholder="Valor (R$)" class="bg-black/50 border border-gray-700 p-2 rounded text-xs outline-none focus:border-blue-500 text-white">
                         <input type="date" id="tax-date" class="bg-black/50 border border-gray-700 p-2 rounded text-xs outline-none focus:border-blue-500 text-white">
-                        <button onclick="gravarImposto()" class="btn-militar text-white rounded text-xs font-bold transition uppercase">Gravar Agora</button>
+                        <button onclick="gravarImposto()" class="btn-militar text-white rounded text-xs font-bold transition uppercase">Gravar no D1</button>
                     </div>
                 </div>
 
@@ -149,29 +145,19 @@
             </section>
 
             <section id="view-notas" class="view-section grid grid-cols-1 gap-6">
-                <div class="glass-panel p-6 rounded-2xl">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-xl font-bold flex items-center gap-2"><i data-lucide="file-check" class="text-blue-500"></i> Repositório SandxCDD</h2>
-                        <button onclick="showNotification('Sincronizando com diretório local...', 'info')" class="text-[10px] bg-blue-600/20 text-blue-400 border border-blue-600/50 px-4 py-1 rounded-full font-bold uppercase">Varredura Local</button>
-                    </div>
-                    <table class="w-full text-left custom-table">
-                        <thead>
-                            <tr><th>Emissor</th><th>Documento</th><th>Valor</th><th>Data</th><th>Status</th></tr>
-                        </thead>
-                        <tbody class="text-gray-300 font-mono">
-                            <tr><td>DNA Digital</td><td>NF-1029</td><td>R$ 4.500,00</td><td>18/03/2026</td><td><span class="text-green-500">AUTORIZADA</span></td></tr>
-                            <tr><td>Cloudflare</td><td>INV-882</td><td>R$ 150,00</td><td>17/03/2026</td><td><span class="text-green-500">AUTORIZADA</span></td></tr>
-                        </tbody>
-                    </table>
+                <div class="glass-panel p-10 rounded-2xl text-center">
+                    <i data-lucide="file-search" size="48" class="mx-auto text-gray-600 mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Repositório de Notas</h2>
+                    <p class="text-gray-400 text-sm">Varredura SandxCDD em progresso no diretório local.</p>
                 </div>
             </section>
 
             <section id="view-balancetes" class="view-section grid grid-cols-1 gap-6 text-center">
-                <div class="glass-panel p-16 rounded-3xl">
-                    <i data-lucide="printer" size="64" class="mx-auto text-blue-500 mb-6"></i>
-                    <h2 class="text-2xl font-bold mb-4">Relatórios Trimestrais Consolidados</h2>
-                    <p class="text-gray-500 text-sm mb-8 max-w-md mx-auto">Consolidação automática de dados do Banco D1 para entrega ME/MEI. Gere o arquivo pronto para o contador.</p>
-                    <button onclick="moduloOffline('PDF Export')" class="btn-militar px-12 py-4 rounded-full text-xs font-bold uppercase tracking-widest transition-all hover:px-14">Baixar PDF Consolidado</button>
+                <div class="glass-panel p-10 rounded-2xl">
+                    <i data-lucide="printer" size="48" class="mx-auto text-blue-500 mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Relatórios Trimestrais</h2>
+                    <p class="text-gray-500 text-sm mb-6">Consolidação automática para entrega fiscal.</p>
+                    <button onclick="moduloOffline('PDF Export')" class="btn-militar px-10 py-3 rounded-full text-xs font-bold uppercase transition">Gerar PDF</button>
                 </div>
             </section>
 
@@ -188,6 +174,7 @@
         const workerURL = 'https://govdna.contatodroppfy.workers.dev';
         let myChart;
 
+        // --- NOTIFICAÇÕES ---
         function showNotification(msg, type = 'info') {
             const toast = document.getElementById('toast');
             const msgEl = document.getElementById('toast-msg');
@@ -197,11 +184,10 @@
             setTimeout(() => toast.classList.add('translate-x-[150%]'), 4000);
         }
 
+        // --- NAVEGAÇÃO SPA ---
         function switchView(viewName) {
             document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
-            const target = document.getElementById(`view-${viewName}`);
-            if(target) target.classList.add('active');
-
+            document.getElementById(`view-${viewName}`).classList.add('active');
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('bg-blue-600/10', 'border-blue-600/50', 'text-blue-400');
                 btn.classList.add('text-gray-400');
@@ -213,7 +199,8 @@
             }
         }
 
-        function initChart(initialData = [0,0,0,0,0,0]) {
+        // --- GRÁFICO ---
+        function initChart() {
             const ctx = document.getElementById('taxChart').getContext('2d');
             myChart = new Chart(ctx, {
                 type: 'line',
@@ -221,17 +208,15 @@
                     labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
                     datasets: [{
                         label: 'Faturamento',
-                        data: initialData,
+                        data: [1200, 1900, 3000, 2500, 4250, 3800],
                         borderColor: '#3b82f6',
                         backgroundColor: 'rgba(59, 130, 246, 0.05)',
                         borderWidth: 2,
-                        fill: true,
-                        tension: 0.4
+                        fill: true, tension: 0.4
                     }]
                 },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
+                    responsive: true, maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
                     scales: {
                         y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#444', font: { size: 9 } } },
@@ -241,6 +226,7 @@
             });
         }
 
+        // --- SINCRONIA REAL COM WORKER ---
         async function sincronizarDashboard() {
             try {
                 const response = await fetch(`${workerURL}/api/v1/sync/SandxCDD`);
@@ -249,10 +235,8 @@
                 if(result.tax_engine) {
                     document.getElementById('tax-value').innerText = `R$ ${result.tax_engine.total_das_pagar.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
                     document.getElementById('ia-insight').innerText = result.tax_engine.ia_insight;
-                    document.getElementById('chart-status').innerText = `NODE: SOVEREIGN | SEC: ${result.protocol} | SYNC OK`;
+                    document.getElementById('chart-status').innerText = `PROTOCOLO: ${result.protocol} | SINCRONIZADO`;
                     document.getElementById('chart-status').style.color = "#4ade80";
-                    
-                    myChart.data.datasets[0].data = result.tax_engine.chart_data;
                     myChart.update();
                 }
             } catch (error) {
@@ -261,6 +245,7 @@
             }
         }
 
+        // --- GRAVAÇÃO NO D1 ---
         async function gravarImposto() {
             const tipo = document.getElementById('tax-name').value;
             const valor = document.getElementById('tax-amount').value;
@@ -269,7 +254,7 @@
             if(!tipo || !valor) return showNotification("Dados incompletos.", "error");
 
             try {
-                showNotification("Gravando no D1 Ledger...", "info");
+                showNotification("Injetando no Ledger...", "info");
                 const response = await fetch(`${workerURL}/api/v1/add-tax`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -277,24 +262,24 @@
                 });
 
                 if(response.ok) {
-                    showNotification("Dados injetados com sucesso.", "success");
+                    showNotification("Dados gravados no banco militar.", "success");
                     sincronizarDashboard();
                     document.getElementById('tax-name').value = '';
                     document.getElementById('tax-amount').value = '';
                 }
             } catch (e) {
-                showNotification("Erro na rede militar.", "error");
+                showNotification("Erro na rede.", "error");
             }
         }
 
-        function pagarPix() { showNotification("Copiando QR Code Pix...", "success"); }
-        function aplicarOtimizacao() { showNotification("IA: Nova estratégia tributária aplicada.", "success"); }
-        function moduloOffline(n) { showNotification(`${n} encriptado. Use Certificado A1.`, "info"); }
+        function pagarPix() { showNotification("QR Code Pix gerado para pagamento imediato.", "success"); }
+        function aplicarOtimizacao() { showNotification("IA Sovereign: Otimização aplicada.", "success"); }
+        function moduloOffline(n) { showNotification(`${n} criptografado. Requer Certificado A1.`, "info"); }
 
         window.onload = () => {
             initChart();
             sincronizarDashboard();
-            setInterval(sincronizarDashboard, 5000); 
+            setInterval(sincronizarDashboard, 10000); // 10 segundos Real-Time
         };
     </script>
 </body>
