@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Tax AI | Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        .status-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="p-6">
+
+    <header class="flex justify-between items-center mb-8">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tighter neon-text flex items-center gap-2">
+                <i data-lucide="shield-check" class="text-blue-500"></i>
+                SOVEREIGN TAX <span class="text-blue-500 underline">AI</span>
+            </h1>
+            <p class="text-xs text-gray-500 font-mono">NODE | SECURITY: MIL-SPEC</p>
+        </div>
+        <div class="flex gap-4">
+            <div class="glass-panel px-4 py-2 rounded-lg flex items-center gap-3">
+                <span class="w-2 h-2 bg-green-500 rounded-full status-pulse"></span>
+                <span class="text-xs font-mono">FEDERAL/SEFAZ SYNC: OK</span>
+            </div>
+            <button class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded font-bold text-sm transition">
+                CERTIFICADO ATIVO
+            </button>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-12 gap-6">
+        
+        <aside class="col-span-2 space-y-4">
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center gap-3 p-3 rounded-lg bg-blue-600/10 border border-blue-600/50 text-blue-400">
+                    <i data-lucide="layout-dashboard"></i> Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition">
+                    <i data-lucide="file-text"></i> Notas Fiscais
+                </a>
+                <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition">
+                    <i data-lucide="trending-up"></i> Balancetes
+                </a>
+                <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition">
+                    <i data-lucide="users"></i> Contador Hub
+                </a>
+            </nav>
+
+            <div class="glass-panel p-4 rounded-xl mt-10">
+                <p class="text-[10px] text-gray-500 mb-2 uppercase tracking-widest">IA Fiscal Engine</p>
+                <p class="text-sm italic">"Alíquota de ICMS atualizada em 27 estados automaticamente."</p>
+            </div>
+        </aside>
+
+        <section class="col-span-10 grid grid-cols-3 gap-6">
+            
+            <div class="glass-panel p-6 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i data-lucide="landmark" size="64"></i>
+                </div>
+                <h3 class="text-gray-400 text-sm mb-1">Total a Pagar (DAS/Guias)</h3>
+                <p class="text-4xl font-bold mb-4">R$ 4.250,88</p>
+                <div class="flex justify-between items-end">
+                    <span class="text-red-400 text-xs flex items-center gap-1">
+                        <i data-lucide="alert-triangle" size="14"></i> Vence em 2 dias
+                    </span>
+                    <button class="text-xs bg-white text-black px-3 py-1 rounded-full font-bold hover:bg-blue-500 hover:text-white transition">PAGAR VIA PIX</button>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-l-green-500">
+                <h3 class="text-gray-400 text-sm mb-1">Status de Regularidade</h3>
+                <p class="text-2xl font-bold text-green-500">SITUAÇÃO REGULAR</p>
+                <ul class="mt-4 space-y-2 text-xs text-gray-400 font-mono">
+                    <li class="flex justify-between"><span>FEDERAL (RFB):</span> <span class="text-green-400">SYNCED</span></li>
+                    <li class="flex justify-between"><span>ESTADUAL (SEFAZ):</span> <span class="text-green-400">SYNCED</span></li>
+                    <li class="flex justify-between"><span>MUNICIPAL (ISS):</span> <span class="text-green-400">SYNCED</span></li>
+                </ul>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl bg-gradient-to-br from-blue-900/20 to-transparent">
+                <h3 class="text-blue-400 text-sm mb-2 flex items-center gap-2">
+                    <i data-lucide="sparkles" size="16"></i> IA Preditiva
+                </h3>
+                <p class="text-sm leading-relaxed">
+                    
+                </p>
+                <button class="mt-4 w-full border border-blue-500/50 text-blue-400 py-2 rounded-lg text-xs hover:bg-blue-500 hover:text-white transition">
+                    APLICAR OTIMIZAÇÃO
+                </button>
+            </div>
+
+            <div class="col-span-3 glass-panel p-6 rounded-2xl h-80 flex flex-col items-center justify-center border-dashed border-2 border-gray-800">
+                <i data-lucide="bar-chart-3" class="text-gray-700 mb-4" size="48"></i>
+                <p class="text-gray-500 font-mono tracking-widest uppercase">Visualização Analítica Integrada</p>
+                <p class="text-xs text-blue-500 mt-2">Aguardando fluxo de dados do Governo...</p>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // Inicializa os ícones Lucide
+        lucide.createIcons();
+
+        // Simulação de Logs de Segurança no Console
+        console.log("%c [SYS] SECURITY ENCRYPTION LEVEL: AES-256-GCM ACTIVE ", "background: #000; color: #0f0; font-weight: bold;");
+        console.log("%c [SYS] CONNECTING TO MULTI-STATE GATEWAY (SP, RJ, MG, DF)... ", "color: #3b82f6;");
+    </script>
+</body>
+</html>

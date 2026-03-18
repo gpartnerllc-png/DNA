@@ -1,2 +1,0 @@
-# DNA
-Sistema Limpo Gov
